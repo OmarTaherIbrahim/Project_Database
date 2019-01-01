@@ -16,6 +16,7 @@ and we use the multpli user accounts to help the website connect a relation betw
 
 # MYSQL QUERIES
 ## Creating Table 
+``` sql
 create table Section(
     SectionName varchar(15) not null,
     ParentSection varchar(15) not null,
@@ -81,3 +82,5 @@ create table ReviewedProducts(
     primary key(Customer_ID,Product_ID),
     constraint check_rate_reviewed check(Rate>0 and Rate<6)
 );
+
+```

@@ -34,8 +34,8 @@ constriants so it would be hard to drop these constraint vital from any that has
 ## Creating Table 
 ``` sql
 create table Section(
-    SectionName varchar(15) not null,
-    ParentSection varchar(15) not null,
+    SectionName varchar(15) ,
+    ParentSection varchar(15) ,
     constraint Section_pk PRIMARY key(SectionName),
     constraint Section_Parent_fk foreign key (ParentSection) references Section(SectionName),
     unique(SectionName)
@@ -121,7 +121,7 @@ create table Seller(
     rating int check(rating>0 and  rating <6),
     primary key(seller_id),
     foreign key(seller_id) 
-    references Account_user(userid)
+    references user_account(userid)
 );
 
 create table customer(
@@ -135,7 +135,7 @@ create table share_view_history(
     second_customer_id int not null ,
     Accuracy decimal(3,2) ,
     constraint shareview_Accuracy_check check(Accuracy >=0 and Accurace <=1), 
-    constraint sharview_PK primary key(customer_email,second_customer_email),
+    constraint sharview_PK primary key(customer_id,second_customer_id),
     constraint shareview_custid_FK foreign key (customer_id) references customer(customer_id),
     constraint shareview_2custid_FK foreign key (second_customer_id) references customer(customer_id)
 );
@@ -197,7 +197,6 @@ create table offer (
     constraint Offer_product_FK foreign key(product_id) references product(product_id),
     constraint Offer_sellerid_FK foreign key(seller_id) references seller(seller_id)
 );
-
 ```
 ## Views
 ```SQl

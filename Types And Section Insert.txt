@@ -1,13 +1,15 @@
 5 Type , 5 Section
 insert into section(sectionname,parentsection)
-values('Electronics',);
+values('Electronics','Electronics');
 insert into section(sectionname,parentsection)
-values('Accessories','null');
+values('Accessories','Accessories');
+insert into section(sectionname,parentsection)
+values('Clothes','Clothes');
 insert into section(sectionname,parentsection)
 values('computers','Electronics');
 insert into section(sectionname,parentsection)
 values('Mobiles','Electronics');
-insert into section(sectionname,parentsection)
+insert into section
 values('Wallets','Accessories');
 insert into section(sectionname,parentsection)
 values('T-Shirts','Clothes');

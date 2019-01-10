@@ -234,3 +234,9 @@ Type,
 User_Account,
 ViewedProduct;
 ```
+
+### inser Statements
+```sql
+### insert here
+
+```

@@ -209,3 +209,28 @@ select Product_ID as NewProduct from Product where DATEDIFF(current_date,product
 ### Best products of the year
 create view BestOfYear as
 select Product_ID as BestOfYearProduct from Product where DATEDIFF(current_date,product.PublishDate)<365;
+```
+
+##drop statements
+```sql
+drop table available_country,
+Bookmark,
+cart,
+Colors,
+customer,
+Customer_order,
+Delivers_To,
+Delivery_service,
+offer,
+Product,
+realation,
+ReviewedProducts,
+Section,
+Seller,
+share_view_history,
+Sizes,
+Tags,
+Type,
+User_Account,
+ViewedProduct;
+```

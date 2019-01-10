@@ -201,9 +201,12 @@ create table offer (
 ```
 ## Views
 ```SQl
+### Hot products
 create view Hot as
 select Product_ID as HotProduct from Product where DATEDIFF(current_date,product.PublishDate)<120;
+### New products
 create view New as
 select Product_ID as NewProduct from Product where DATEDIFF(current_date,product.PublishDate)<30;
+### Best products of the year
 create view BestOfYear as
 select Product_ID as BestOfYearProduct from Product where DATEDIFF(current_date,product.PublishDate)<365;

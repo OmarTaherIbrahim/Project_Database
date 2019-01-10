@@ -1,0 +1,24 @@
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('700','717.5','2018-8-11','2.5','11'); 1
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('500','525','2018-6-20','5','11'); 2
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1500','1650','2018-3-30','10','11'); 3
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1000','1025','2018-7-11','2.5','12'); 4
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1200','1260','2018-4-20','5','13'); 5
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('600','660','2018-12-30','10','14'); 6
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1000','1025','2018-8-16','2.5','14'); 7
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1200','1260','2018-6-20','5','15'); 8
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('600','660','2018-3-1','10','16'); 9
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('2000','2700','2018-8-11','35','12'); 10
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1300','1495','2018-6-20','15','13'); 11
+insert into customer_order(totalprice,totalpricewithtax,date_of_order,tax,customer_id)
+values('1500','1800','2018-3-30','20','14'); 12

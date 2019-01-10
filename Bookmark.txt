@@ -1,0 +1,14 @@
+BookMark
+
+insert into bookmark(customer_id,product_id)
+values('11','1');
+insert into bookmark(customer_id,product_id)
+values('12','2');
+insert into bookmark(customer_id,product_id)
+values('14','5');
+insert into bookmark(customer_id,product_id)
+values('19','10');
+insert into bookmark(customer_id,product_id)
+values('15','11');
+insert into bookmark(customer_id,product_id)
+values('16','12');

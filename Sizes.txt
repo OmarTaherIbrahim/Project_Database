@@ -1,0 +1,20 @@
+sizes
+
+insert into sizes(size,product_id)
+values('S','15');
+insert into sizes(size,product_id)
+values('M','15');
+insert into sizes(size,product_id)
+values('L','15');
+insert into sizes(size,product_id)
+values('XL','15');
+insert into sizes(size,product_id)
+values('S','12');
+insert into sizes(size,product_id)
+values('M','12');
+insert into sizes(size,product_id)
+values('L','12');
+insert into sizes(size,product_id)
+values('XL','12');
+insert into sizes(size,product_id)
+values('XLL','12');

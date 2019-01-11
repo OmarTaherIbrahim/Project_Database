@@ -1,4 +1,4 @@
-BookMark
+
 
 insert into bookmark(customer_id,product_id)
 values('11','1');

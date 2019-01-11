@@ -1,20 +1,20 @@
 insert into customer(customer_id)
-values('1');
+values('11');
 insert into customer(customer_id)
-values('2');
+values('12');
 insert into customer(customer_id)
-values('3');
+values('13');
 insert into customer(customer_id)
-values('4');
+values('14');
 insert into customer(customer_id)
-values('5');
+values('15');
 insert into customer(customer_id)
-values('6');
+values('16');
 insert into customer(customer_id)
-values('7');
+values('17');
 insert into customer(customer_id)
-values('8');
+values('18');
 insert into customer(customer_id)
-values('9');
+values('19');
 insert into customer(customer_id)
-values('10');
+values('20');

@@ -1,4 +1,4 @@
-Seller
+
 insert into seller(seller_id,rating)
 values('1','5');
 insert into seller(seller_id,rating)
@@ -8,9 +8,9 @@ values('3','5');
 insert into seller(seller_id,rating)
 values('4','5');
 insert into seller(seller_id,rating)
-values('5','5')
+values('5','5');
 insert into seller(seller_id,rating)
-values('6','5');;
+values('6','5');
 insert into seller(seller_id,rating)
 values('7','5');
 insert into seller(seller_id,rating)

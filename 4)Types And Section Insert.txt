@@ -1,4 +1,4 @@
-5 Type , 5 Section
+
 insert into section(sectionname,parentsection)
 values('Electronics','Electronics');
 insert into section(sectionname,parentsection)
@@ -14,15 +14,16 @@ values('Wallets','Accessories');
 insert into section(sectionname,parentsection)
 values('T-Shirts','Clothes');
 
-insert into Type(serial_no,typename,sectionname) 
+insert into Product_Type(serial_no,typename,sectionname) 
 values('1','Lenovo','computers');
-insert into Type(serial_no,typename,sectionname)
+insert into Product_Type(serial_no,typename,sectionname)
 values('2','Mac','computers');
-insert into Type(serial_no,typename,sectionname)
+insert into Product_Type(serial_no,typename,sectionname)
 values('3','Samsung','Mobiles');
-insert into Type(serial_no,typename,sectionname)
+insert into Product_Type(serial_no,typename,sectionname)
 values('4','iPhone8','Mobiles');
-insert into Type(serial_no,typename,sectionname)
+insert into Product_Type(serial_no,typename,sectionname)
 values('5','rolex watches','Wallets');
-insert into Type(serial_no,typename,sectionname)
+insert into Product_Type(serial_no,typename,sectionname)
 values('6','American-Eagle','T-Shirts');
+

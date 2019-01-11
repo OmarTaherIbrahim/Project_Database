@@ -1,0 +1,29 @@
+
+
+insert into tags(Tags,Product_id)
+values('Lenovo','1');
+insert into tags(Tags,Product_id)
+values('Computers','1');
+insert into tags(Tags,Product_id)
+values('Brand New','1');
+insert into tags(Tags,Product_id)
+values('2018','1');
+insert into tags(Tags,Product_id)
+values('Mac','4');
+insert into tags(Tags,Product_id)
+values('Best Laptops','4');
+insert into tags(Tags,Product_id)
+values('2019','4');
+insert into tags(Tags,Product_id)
+values('Samsung','7');
+insert into tags(Tags,Product_id)
+values('Korean','7');
+insert into tags(Tags,Product_id)
+values('iphone8','10');
+insert into tags(Tags,Product_id)
+values('iphone','10');
+insert into tags(Tags,Product_id)
+values('Mobiles','10');
+insert into tags(Tags,Product_id)
+values('2018','10');
+

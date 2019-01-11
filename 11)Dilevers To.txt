@@ -1,0 +1,22 @@
+
+
+insert into Delivers_To(Delivers_To,product_id)
+values('Jordan','1');
+insert into Delivers_To(Delivers_To,product_id)
+values('Japan','2');
+insert into Delivers_To(Delivers_To,product_id)
+values('Usa','3');
+insert into Delivers_To(Delivers_To,product_id)
+values('Usa','4');
+insert into Delivers_To(Delivers_To,product_id)
+values('Jordan','5');
+insert into Delivers_To(Delivers_To,product_id)
+values('Jordan','6');
+insert into Delivers_To(Delivers_To,product_id)
+values('Usa','7');
+insert into Delivers_To(Delivers_To,product_id)
+values('Usa','8');
+insert into Delivers_To(Delivers_To,product_id)
+values('Japan','9');
+insert into Delivers_To(Delivers_To,product_id)
+values('Usa','10');

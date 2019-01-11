@@ -1,4 +1,4 @@
-Colors
+
 
 insert into colors(color,product_id)
 values('Black','1');

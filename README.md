@@ -236,6 +236,7 @@ Type,
 User_Account,
 ViewedProduct;
 ```
+<<<<<<< HEAD
 #inner statements 
 ```sq
 ### insert here 
@@ -738,3 +739,11 @@ values('12','4','I Loooved it ');
 
 
 ```
+=======
+
+### inser Statements
+```sql
+### insert here
+
+```
+>>>>>>> 382a902a4dc5e96563397c967783ef9ca525e8e8

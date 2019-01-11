@@ -34,99 +34,99 @@ constriants so it would be hard to drop these constraint vital from any that has
 ## Creating Table 
 ``` sql
 create table User_Account(
-UserId int auto_increment,
-Email varchar(30) not null,
-username varchar(30) not null ,
-account_pass varchar(16) not null,
-Backup_Email varchar(30) not null,
-phonenumber varchar(15) not null,
-address varchar(20) not null,
-country varchar(15),
-BankAccount char(16), # the way of payment like visa
-birthdate date,       # 8 because like 01-01-1998
-AccountType varchar(1) not null,
-  primary key (userId),
-constraint UserAccount_UN_Unique unique(username),
-constraint UserAccount_Email_Unique unique(Email)
+    UserId int auto_increment,
+    Email varchar(30) not null,
+    username varchar(30) not null ,
+    account_pass varchar(16) not null,
+    Backup_Email varchar(30) not null,
+    phonenumber varchar(15) not null,
+    address varchar(20) not null,
+    country varchar(15),
+    BankAccount char(16), # the way of payment like visa
+    birthdate date,       # 8 because like 01-01-1998
+    AccountType varchar(1) not null,
+    primary key (userId),
+    constraint UserAccount_UN_Unique unique(username),
+    constraint UserAccount_Email_Unique unique(Email)
 );
 
 create table Seller(
-seller_id int not null,
-rating int check(rating>0 and  rating <6),
-  primary key(seller_id),
-  foreign key(seller_id) 
-references User_Account(userid)
-);
+    seller_id int not null,
+    rating int check(rating>0 and  rating <6),
+    primary key(seller_id),
+    foreign key(seller_id) 
+    references User_Account(userid)
+);	
 
-
-	
-	create table customer(
+create table customer(
 	Customer_id int not null ,
 	constraint  primary key (customer_id),
-	constraint  foreign  key (customer_id) references User_Account(userId));
-		
-		create table share_view_history(
-		customer_id int not null,
-		second_customer_id int not null ,
-		Accuracy decimal(3,2) ,
-        constraint shareview_Accuracy_check check(Accuracy >=0 and Accurace <=1), 
-		constraint sharview_PK primary key(customer_id,second_customer_id),
-		constraint shareview_custid_FK foreign key (customer_id) references customer(customer_id),
-		constraint shareview_2custid_FK foreign key (second_customer_id) references customer(customer_id));
+	constraint  foreign  key (customer_id) references User_Account(userId)
+);
 
+create table share_view_history(
+    customer_id int not null,
+    second_customer_id int not null ,
+    Accuracy decimal(3,2) ,
+    constraint shareview_Accuracy_check check(Accuracy >=0 and Accurace <=1), 
+    constraint sharview_PK primary key(customer_id,second_customer_id),
+    constraint shareview_custid_FK foreign key (customer_id) references customer(customer_id),
+    constraint shareview_2custid_FK foreign key (second_customer_id) references customer(customer_id)
+);
+
+create table realation(
+    customer_id int not null ,
+    seller_id int not null ,
+    constraint realation_PK primary key (customer_id,seller_id),
+    constraint realation_seller_FK foreign  key (seller_id) references Seller(Seller_id),
+    constraint realation_customer_Fk foreign  key (customer_id) references customer(customer_id)
+);
+
+create table available_country(
+    seller_id int not null,
+    available_countrys varchar(20) not null ,
+    constraint Availablecountry_Pk primary key(seller_id),
+    constraint Availablecountry_seller_Fk foreign key(seller_id) references seller(seller_id)
+);
+    
 		
-	
+create table Customer_order (
+    reciet_no int not null auto_increment,
+    totalprice float default 0,
+    totalpricewithtax float default 0,
+    Date_of_order date ,
+    tax float,
+    customer_id int not null ,
+    constraint  customerorder_check check (tax >=0),
+    constraint  primary key(reciet_no) ,
+    constraint  foreign key (customer_id) references customer(customer_id)
+);
 		
-		create table realation(
-		customer_id int not null ,
-		seller_id int not null ,
-	    constraint realation_PK primary key (customer_id,seller_id),
-		constraint realation_seller_FK foreign  key (seller_id) references Seller(Seller_id),
-		constraint realation_customer_Fk foreign  key (customer_id) references customer(customer_id));
+create table Delivery_service(
+    reciet_no int not null ,
+    Deleivery_time date ,
+    price float ,
+    constraint Delivery_Check check(price > 0),
+    constraint Deleivery_PK primary key (reciet_no),
+    constraint Delivery_Fk foreign key (reciet_no) references customer_order(reciet_no)
+);
 		
-		
-		 create table available_country(
-         seller_id int not null,
-         available_countrys varchar(20) not null ,
-         constraint Availablecountry_Pk primary key(seller_id),
-         constraint Availablecountry_seller_Fk foreign key(seller_id) references seller(seller_id));
-		
-		
-		create table Customer_order (
-		reciet_no int not null auto_increment,
-		totalprice float default 0,
-		totalpricewithtax float default 0,
-		Date_of_order date ,
-		tax float,
-		customer_id int not null ,
-        constraint  customerorder_check check (tax >=0),
-		constraint  primary key(reciet_no) ,
-		constraint  foreign key (reciet_no) references customer(customer_id));
-		
-		create table Delivery_service(
-		reciet_no int not null ,
-		Deleivery_time date ,
-		price float ,
-        constraint Delivery_Check check(price > 0),
-		constraint Deleivery_PK primary key (reciet_no),
-		constraint Delivery_Fk foreign key (reciet_no) references customer_order(reciet_no));
-		
-	create table Section(
+create table Section(
     SectionName varchar(15) not null,
     ParentSection varchar(15) default null,
     constraint Section_pk PRIMARY key(SectionName),
     constraint Section_Parent_fk foreign key (ParentSection) references Section(SectionName) on delete set null,
     unique(SectionName)
-)ENGINE=INNODB;
+);
 
-
-	create table Product_Type(
+create table Product_Type(
     Serial_no int auto_increment primary key,
     TypeName varchar(15) not null unique,
     SectionName varchar(15)not null,
     foreign key(SectionName) references Section(SectionName) 
 );
-        create table Product(
+
+create table Product(
     Product_ID int auto_increment primary key,
     serial_no int ,
     foreign key(serial_no) references Product_Type(Serial_no),
@@ -136,26 +136,26 @@ references User_Account(userid)
     Owner_ID int not null,
     Quantity int not null check (Quantity>=0)
 );
-		create table cart(
-		reciet_no int not null ,
-		product_id int not null ,
-		amount int ,
-		constraint Cart_PK primary key (reciet_no,product_id),
-		constraint Cart_order_FK foreign key (reciet_no) references customer_order(reciet_no),
-		constraint Cart_product_FK foreign key(product_id) references product(product_id));
-		
-		create table offer ( 
-		product_id int not null ,
-		seller_id int not null ,
-		datestart date ,
-		dateend date,
-		percentage decimal (3,2) default 0 ,
-		constraint Offer_Pk primary key (product_id,seller_id),
-		constraint Offer_product_FK foreign key(product_id) references product(product_id),
-		constraint Offer_sellerid_FK foreign key(seller_id) references seller(seller_id));
-		
-		
 
+create table cart(
+    reciet_no int not null ,
+    product_id int not null ,
+    amount int ,
+    constraint Cart_PK primary key (reciet_no,product_id),
+    constraint Cart_order_FK foreign key (reciet_no) references customer_order(reciet_no),
+    constraint Cart_product_FK foreign key(product_id) references product(product_id)
+);
+    
+create table offer ( 
+    product_id int not null ,
+    seller_id int not null ,
+    datestart date ,
+    dateend date,
+    percentage decimal (3,2) default 0 ,
+    constraint Offer_Pk primary key (product_id,seller_id),
+    constraint Offer_product_FK foreign key(product_id) references product(product_id),
+    constraint Offer_sellerid_FK foreign key(seller_id) references seller(seller_id)
+);
 
 create table Tags (
     Tags varchar(15) ,
@@ -163,34 +163,40 @@ create table Tags (
     foreign key(Product_ID) references Product(Product_ID),
     primary key (Tags,Product_ID)
 );
+
 create table Sizes (
     Size varchar(15) ,
     Product_ID int ,
     foreign key(Product_ID) references Product(Product_ID),
     primary key (Size,Product_ID)
 );
+
 create table Delivers_To (
     Delivers_To varchar(15),
     Product_ID int,
     foreign key(Product_ID) references Product(Product_ID),
     primary key (Delivers_To,Product_ID)
 );
+
 create table Colors(
     Color varchar(15) ,
     Product_ID int,
     foreign key(Product_ID) references Product(Product_ID),
     primary key (Color,Product_ID)
 );
+
 create table ViewedProduct(
     Customer_ID int,
     Product_ID int,
     primary key(Customer_ID,Product_ID)
 );
+
 create table Bookmark(
     Customer_ID int,
     Product_ID int,
     primary key(Customer_ID,Product_ID)
 );
+
 create table ReviewedProducts(
     Customer_ID int,
     Product_ID int,
@@ -199,6 +205,7 @@ create table ReviewedProducts(
     primary key(Customer_ID,Product_ID),
     constraint check_rate_reviewed check(Rate>0 and Rate<6)
 );
+
 ```
 ## Views
 ```SQl
@@ -236,12 +243,9 @@ Type,
 User_Account,
 ViewedProduct;
 ```
-<<<<<<< HEAD
-#inner statements 
-```sq
+#insert statements 
+```sql
 ### insert here 
-
-
 ### Users
 insert into User_Account(Email,Username,account_pass,Backup_Email,phoneNumber,address,country,bankaccount,birthdate,accounttype)
 values('Ahmad123@gmail.com','Ahmadqasho','Ahmad1998','ahmadgasho@gmail.com','0962798463157','Universtystreet','Jordan','1234567899876543','1998-7-16','S');
@@ -272,10 +276,6 @@ values('Majd1564@gmail.com','asd5as6d65','asdasd','SaraAhmad@gmail.com','0012798
 
  insert into User_Account(Email,Username,account_pass,Backup_Email,phoneNumber,address,country,bankaccount,birthdate,accounttype)
 values('Alexandarahaha@gmail.com','dasdas1651','sf2v0sf','Alexandra467@gmail.com','0012797462156','William MI 49464','Usa','5135600799104997','1984-2-12','S');
- 
- 
- 
- 
  insert into User_Account(Email,Username,account_pass,Backup_Email,phoneNumber,address,country,bankaccount,birthdate,accounttype)
 values('Fadwa45@gmail.com','Fadwa','Fadwa123','Fadwa4545@gmail.com','096740566157','shmesani','Jordan','1234567899876543','1991-1-15','C');
 
@@ -476,8 +476,6 @@ values('6','100','2018-8-15','Japan','4','30');
 
 
 ###Delivery Service
-
-
 insert into Delivery_service (reciet_no,Deleivery_time,price)
 values('11','2018-9-12','200');
 insert into Delivery_service (reciet_no,Deleivery_time,price)
@@ -504,8 +502,6 @@ values('20','2018-9-11','200');
 
 
 ###Cart
-
-
 insert into cart(reciet_no,product_id,amount)
 values('11','1','2');
 insert into cart(reciet_no,product_id,amount)
@@ -548,9 +544,6 @@ values('7','4','2018-11-16','2018-11-20','0.50');
 
 
 ###Tags
-
-
-
 insert into tags(Tags,Product_id)
 values('Lenovo','1');
 insert into tags(Tags,Product_id)
@@ -583,7 +576,6 @@ values('2018','10');
 
 
 ###Sizes
-
 insert into sizes(size,product_id)
 values('S','15');
 insert into sizes(size,product_id)
@@ -609,8 +601,6 @@ values('XLL','12');
 
 
 ###Delivers_To
-
-
 insert into Delivers_To(Delivers_To,product_id)
 values('Jordan','1');
 insert into Delivers_To(Delivers_To,product_id)
@@ -637,8 +627,6 @@ values('Usa','10');
 
 
 ###Colors 
-
-
 insert into colors(color,product_id)
 values('Black','1');
 insert into colors(color,product_id)
@@ -665,8 +653,6 @@ values('Black','10');
 
 
 ###ViewedProduct
-
-
 insert into viewedproduct(customer_id,product_id)
 values('11','1');
 insert into viewedproduct(customer_id,product_id)
@@ -699,7 +685,6 @@ values('13','2');
 
 
 ###Bookmark
-
 insert into bookmark(customer_id,product_id)
 values('11','1');
 insert into bookmark(customer_id,product_id)
@@ -735,15 +720,4 @@ values('16','9','Bad Product Do not Buy it  ');
 insert into ReviewedProducts(customer_id,product_id,reviewdescription)
 values('12','4','I Loooved it ');
 
-
-
-
 ```
-=======
-
-### inser Statements
-```sql
-### insert here
-
-```
->>>>>>> 382a902a4dc5e96563397c967783ef9ca525e8e8

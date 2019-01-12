@@ -33,7 +33,7 @@ And The New Product is A Product that Has Been Out For a less than a Monthand ha
 BestOfYear Product is  a Product that Has Been Out For less than a year And it Has A Rating Above 4.
 
 ## Relations 
- ###The Relation between The Customer and Seller “Relationship” 
+### The Relation between The Customer and Seller “Relationship” 
 Which Can Happen Between (N) Customers Can Have a Preferred (M) Sellers Which He Buy From His Product and He Likes The Quality Of His Products so He can Put The Seller From One of his Preferred Seller as Well as it includes The Number of Products The Customers Bought from that Seller and The Rating For That Seller .
 ### The Relation Between The Customers and Order “Purchase”
 In This Realation (1) Customers Can Purchase (N) Orders , Which is Made So The Customer Can Purchase an Order
@@ -63,90 +63,90 @@ This Realation Determines Wither The Prodduct is New Or Hot Or Best Of Year
 This Realtionship Which Can Have (1) Parent For (N) Child Sections , So we Can Know Every Section For Which Parent They Belong , Example Section Computers Belong To Electronics .
 
 ## The Attributes 
-For The User Entity :
-Email : The Email of The user 
-UserName : The Username That The User Has Choosed.
-Password : A Password For That User Account.
-Bank Account For The Customer : The Way The User Will Pay  And As We Create An Account it’s Not Necessary But When The Customer Order it’s Asked To Give The Payment Method  And if He’s A Seller .
-Bank Account For The Seller : It’s Neccisry to Put This Infromation So The Seller Can Revice His Payment.
-Phone Number For The Customer : The Phone Number OF The User So When The Delivery Is Delivered The Delivery Service Can Contact With Him .
-Address: The Address Of The User So The Delievery Service Can Know Where To Deliever.
-Address For The Seller : So The Delivery Service Can Come and Take The Seller’s Products.
-Country : The Country Of The user is Lving in So This Can help Us in The Deliver To.
-Account Type : So We Can Know Wheter The User is A User or A Seller .
-Birthday : So The Website can wish him a Happy Birthday .
-User Id : This Is The Most Important Attribute so we Can Trace This User.
+### For The User Entity :
+__Email__ : The Email of The user 
+__UserName__: The Username That The User Has Choosed.
+__Password__ : A Password For That User Account.
+__Bank Account For The Customer__: The Way The User Will Pay  And As We Create An Account it’s Not Necessary But When The Customer Order it’s Asked To Give The Payment Method  And if He’s A Seller .
+__Bank Account For The Seller__ : It’s Neccisry to Put This Infromation So The Seller Can Revice His Payment.
+__Phone Number For The Customer__: The Phone Number OF The User So When The Delivery Is Delivered The Delivery Service Can Contact With Him .
+__Address__: The Address Of The User So The Delievery Service Can Know Where To Deliever.
+__Address For The Seller__: So The Delivery Service Can Come and Take The Seller’s Products.
+__Country__ : The Country Of The user is Lving in So This Can help Us in The Deliver To.
+__Account Type__ : So We Can Know Wheter The User is A User or A Seller .
+__Birthday__ : So The Website can wish him a Happy Birthday .
+__User Id__: This Is The Most Important Attribute so we Can Trace This User.
 
-Seller Entity : 
-Seller id : it’s Primary Key for Seller Entity And a Forigen Key Which refers To The User id.
-Rating : The Current Rating For that  Seller .
+### Seller Entity : 
+__Seller id__ : it’s Primary Key for Seller Entity And a Forigen Key Which refers To The User id.
+__Rating__ : The Current Rating For that  Seller .
 
-Customer Entity:
-Customer id: a Primary Key and a  Forigen Key That Refer For The User Id .
+### Customer Entity:
+__Customer id__: a Primary Key and a  Forigen Key That Refer For The User Id .
 
-Product Entity :
-Product id : it’s The Primary key For a Product Which Identify The Product .
-Serial no: this is The Number That Refers For The Type So we can Know The Product Type.
-Price : The Price Of That Product That The Seller have Chosen.
-Publish date: The Date The Product Has Been Published on The web .
-Country : The Country The Product That was Made in .
-Owner_id: it’s a Foreign Key That Reference The Seller id That Own That Product.
-Quantity : This so We can Know How Much of This Product we Have .
-Type Entity : 
-Serial_no: the Number of that Type And it’s Primary key Which Identify That Type
-Type Name : So We can Insert The Type name Like ‘Iphone8’
-Section Name: it’s A Forigen Key That Refer To The Section Name 
+### Product Entity :
+__Product id__ : it’s The Primary key For a Product Which Identify The Product .
+__Serial no__: this is The Number That Refers For The Type So we can Know The Product Type.
+__Price__ : The Price Of That Product That The Seller have Chosen.
+__Publish date__: The Date The Product Has Been Published on The web .
+__Country__ : The Country The Product That was Made in .
+__Owner_id__: it’s a Foreign Key That Reference The Seller id That Own That Product.
+__Quantity__ : This so We can Know How Much of This Product we Have .
 
-Section Entity:
-Section Name : Which refers To The Section Name Like “Computers”.
-ParentSection : Which refers To The Parent of A Current Section like “Electronics”.
+### Type Entity : 
+__Serial_no__: the Number of that Type And it’s Primary key Which Identify That Type
+__Type Name__ : So We can Insert The Type name Like ‘Iphone8’
+__Section Name__: it’s A Forigen Key That Refer To The Section Name 
 
-Viewed Product:	
-Customer Id : Which is a primary key and forigent key refers To The Customer Id .
-Product Id : Which is a primary key and forigent key refers to the Product Id .
+### Section Entity:
+__Section Name__ : Which refers To The Section Name Like “Computers”.
+__ParentSection__ : Which refers To The Parent of A Current Section like “Electronics”.
 
-Bookmark:
-Customer Id : Which is a primary key and forigent key refers To The Customer Id .
-Product Id : Which is a primary key and forigent key refers to the Product Id .
+### Viewed Product:	
+__Customer Id__ : Which is a primary key and forigent key refers To The Customer Id .
+__Product Id__ : Which is a primary key and forigent key refers to the Product Id .
 
-Order:
-Reciet_no : which is Primary Key and it’s the Reciet Number of that Order.
-Total Price : Total Price Without Tax.
-Total Price With Tax : Total Price With Tax.
-Tax : The Sum of The Taxes in a Orader .
-Date : The Date When the Customer Ordered an Order.
-CustomerIid : which referc To The Customer_id  Who Ordered That Order.
+### Bookmark:
+__Customer Id__ : Which is a primary key and forigent key refers To The Customer Id .
+__Product Id__ : Which is a primary key and forigent key refers to the Product Id .
 
-Delievery Service : 
-Reciet_No : a Primary Key Which refers to Order Reciet_No So we can Trace This Dilevery For Which Order.
-Time :  The Time needed For The Order To Be Delievered .
-Price : The Price of The Delievery .
+### Order:
+__Reciet_no__ : which is Primary Key and it’s the Reciet Number of that Order.
+__Total Price__ : Total Price Without Tax.
+__Total Price With Tax__ : Total Price With Tax.
+__Tax__ : The Sum of The Taxes in a Orader .
+__Date__ : The Date When the Customer Ordered an Order.
+__CustomerIid__ : which referc To The Customer_id  Who Ordered That Order.
 
-Cart
-Reciet_No : a Primary Key Which refers to Order Reciet_No So we can Trace How Many items a Customer has Bought in a Single Order.
-Product_id : So we can Know Which Product did the customer put in The Cart .
-Amount : The Amount of The Items That are in The Cart .
+### Delievery Service : 
+__Reciet_No__ : a Primary Key Which refers to Order Reciet_No So we can Trace This Dilevery For Which Order.
+__Time__ :  The Time needed For The Order To Be Delievered .
+__Price__ : The Price of The Delievery .
 
-Offer
-Product_id : So We can Know On Which Product Did the Seller put His Offer .
-Seller id : So We can Know which seller Who Offered This Offer .
-Date Start : The Date The Offer Starts .
-Date End : The Date The Offer Ends.
-Percentage : The Percentage of the Offer on a Product .
+### Cart
+__Reciet_No__ : a Primary Key Which refers to Order Reciet_No So we can Trace How Many items a Customer has Bought in a Single Order.
+__Product_id__ : So we can Know Which Product did the customer put in The Cart .
+__Amount__ : The Amount of The Items That are in The Cart .
 
-Tags :
-Tag : 
-Tags That can Be Putted on a Product Like “Mobiles”,”iPhone8”.. ect.
-Product_id : Primary key That Refer For Which Product we Put Those Tags at .
-Sizes
-Size : So We Can Choose A Size for a Current Product like : small or medium or large .. ect;
-Product_id : Primary key That Refer For Which Product we Put Those Size to.
-Delivers To :
-Product_id : Primary key That Refer For Which Product .
-Country : So We can Choose The countries That Seller Choose to Deliever to.
-Colors:
-Product_id : Primary key That Refer For Which Product .
-Color : So We Can Choose What Color is Available For A Current Product .
+### Offer
+__Product_id__ : So We can Know On Which Product Did the Seller put His Offer .
+__Seller id__ : So We can Know which seller Who Offered This Offer .
+__Date Start__ : The Date The Offer Starts .
+__Date End__ : The Date The Offer Ends.
+__Percentage__ : The Percentage of the Offer on a Product .
+
+### Tags :
+__Tag____ :  Tags That can Be Putted on a Product Like “Mobiles”,”iPhone8”.. ect.
+__Product_id__ : Primary key That Refer For Which Product we Put Those Tags at .
+### Sizes
+__Size__ : So We Can Choose A Size for a Current Product like : small or medium or large .. ect;
+__Product_id__ : Primary key That Refer For Which Product we Put Those Size to.
+### Delivers To :
+__Product_id__ : Primary key That Refer For Which Product .
+__Country__ : So We can Choose The countries That Seller Choose to Deliever to.
+### Colors:
+__Product_id__ : Primary key That Refer For Which Product .
+__Color__ : So We Can Choose What Color is Available For A Current Product .
 
 
 

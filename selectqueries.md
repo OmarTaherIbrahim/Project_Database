@@ -1,3 +1,4 @@
+note you need to [create tables](Create.md) and [insert values](insert.md) 
 # Single Queries
 ### number of products sold of a certain product
 ```sql

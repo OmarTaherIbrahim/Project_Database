@@ -32,6 +32,9 @@ our users, and what type of sellers we want to __feature__ because of there good
 When we designed these constraints we designed them to be robust and smart, for example most of our 
 important tables their __Forgien key__ and their __primary key__ constraints were defined as column level
 constriants so it would be hard to drop these constraint vital from any that has drop constraint privileges.
+## Advantages of the project to the company
+this project is designed in a way to satisfy 1nf, 2nf, 3nf and it stores valuable information
+so the project and the database can be expanded on and we could use the information that aren't used as much later on if the company wants to adapt data mining and machine learning with out having to start from the beginning with collecting valuable information
 
 # MYSQL QUERIES
 ## [Create](Create.md)

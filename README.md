@@ -34,7 +34,10 @@ constriants so it would be hard to drop these constraint vital from any that has
 
 # MYSQL QUERIES
 ## [Create](Create.md)
+##  [Insert](insert.md)
+##  [Select queries](selectqueries.md)
 ## Views
+### Derived product
 ```SQl
 ### Derived Product
 create view derivedproduct as
@@ -43,31 +46,48 @@ from product,cart,ReviewedProducts
 where product.Product_ID = cart.Product_ID and product.product_id = ReviewedProducts.product_id
 group by product_id
 order by Product.product_id;
-drop view derivedproduct;
+```
+this view has info about the product such as:
++ __Availablitiy__ which is if the product is available or not
++ __Number of sale__ is the number of sales of this product for this seller
++ __Rating__ the average rating depending on the reviews that the product gets
+
 ### Average Price
+```SQl
+
 create view averageprice as
 select product.serial_no,avg(product.price) as AveragePrice
 from product, Product_type
 where Product.serial_no=product_type.serial_no
 group by product.Serial_no
 order by product.serial_no;
-drop view averageprice;
+```
++ __avarageprice__ is the price of the product based on it's type  for example: iphone 8 price for seller a is 100 and for seller b is 200 and they are the only sellers 
+for iphone 8 then the average price of iphone 8 is 150
+
 ### Hot Products
+```SQl
+
 create view Hot as
 select product.Product_ID as HotProduct 
 from Product,derivedproduct 
 where DATEDIFF(current_date,product.PublishDate)<120
 and derivedproduct.Product_ID=product.Product_ID
 and derivedproduct.rating >3.5;
+```
++ this view will have the products that are hot(age<120days(4 months) and has a rating above 3.5)
 ### New products
+```SQl
 create view New as
 select product.Product_ID as NewProduct 
 from Product,derivedproduct 
 where DATEDIFF(current_date,product.PublishDate)<30
 and derivedproduct.Product_ID=product.Product_ID
 and derivedproduct.rating >3.5;
-
+```
++ this view will have the products that are hot(age<30days(1 month) and has a rating above 3.5)
 ### Best products of the year
+```SQl
 create view BestOfYear as
 select product.Product_ID as BestOfYearProduct 
 from Product,derivedproduct 
@@ -75,13 +95,13 @@ where DATEDIFF(current_date,product.PublishDate)<365
 and derivedproduct.Product_ID=product.Product_ID
 and derivedproduct.rating >4;
 select Product_ID as  from Product where DATEDIFF(current_date,product.PublishDate)<365;
-
 ```
++ this view will have the products that are hot(age<365days(1 year) and has a rating above 4)
 
 
-##[Insert](insert.md)
-##[Select queries](selectqueries.md)
+
 ##drop statements
+
 ```sql
 drop table available_country,
 Bookmark,

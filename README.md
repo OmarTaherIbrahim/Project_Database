@@ -1,3 +1,5 @@
+
+please read on github alot of effort was put in formatting it for github viewing please!
 # E-Commerce 
 This is an E-Commerece website that has users and  sellers This project will aim to use user interaction with the website to benifit the user with recommendation, so the more the user
 uses the website the more the recommendations become more accurate.
@@ -50,7 +52,7 @@ where Product.serial_no=product_type.serial_no
 group by product.Serial_no
 order by product.serial_no;
 drop view averageprice;
-### New Products
+### Hot Products
 create view Hot as
 select product.Product_ID as HotProduct 
 from Product,derivedproduct 
@@ -78,6 +80,7 @@ select Product_ID as  from Product where DATEDIFF(current_date,product.PublishDa
 
 
 ##[Insert](insert.md)
+##[Select queries](selectqueries.md)
 ##drop statements
 ```sql
 drop table available_country,
